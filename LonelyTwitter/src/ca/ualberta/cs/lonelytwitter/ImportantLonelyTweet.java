@@ -1,14 +1,15 @@
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class NormalLonelyTweet extends LonelyTweet implements Serializable {
+public class ImportantLonelyTweet extends LonelyTweet implements Serializable {
 
-	public NormalLonelyTweet() {
+	public ImportantLonelyTweet() {
 	}
 
-	public NormalLonelyTweet(String text) {
+	public ImportantLonelyTweet(String text) {
 		this.tweetDate = new Date();
 		this.tweetBody = text;
 	}
@@ -16,7 +17,7 @@ public class NormalLonelyTweet extends LonelyTweet implements Serializable {
 	@Override
 	public boolean isValid() {
 		if (tweetBody.trim().length() == 0
-				|| tweetBody.trim().length() > 10) {
+				|| tweetBody.trim().length() > 20) {
 			return false;
 		}
 
@@ -25,6 +26,6 @@ public class NormalLonelyTweet extends LonelyTweet implements Serializable {
 
 	@Override
 	public String toString() {
-		return getTweetDate() + " | " + getTweetBody() ;
+		return getTweetDate() + " | " + getTweetBody().toUpperCase();
 	}
 }
